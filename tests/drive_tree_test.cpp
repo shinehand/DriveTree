@@ -45,6 +45,16 @@ void summarize_node_counts_descendants() {
   assert(summary.largest_child->name == "Downloads");
 }
 
+void summarize_file_has_no_largest_child() {
+  const drivetree::Node file_node{"archive.zip", drivetree::NodeType::File, 128, {}};
+  const auto summary = drivetree::summarize_node(file_node);
+
+  assert(summary.total_size == 128);
+  assert(summary.folder_count == 0);
+  assert(summary.file_count == 1);
+  assert(summary.largest_child == nullptr);
+}
+
 void collect_largest_items_sorts_descendants() {
   const auto tree = drivetree::build_tree_from_entries(
       {
@@ -108,6 +118,7 @@ void format_tree_lines_includes_root_and_children() {
 int main() {
   build_tree_aggregates_folder_sizes();
   summarize_node_counts_descendants();
+  summarize_file_has_no_largest_child();
   collect_largest_items_sorts_descendants();
   scan_path_reads_real_files();
   format_tree_lines_includes_root_and_children();

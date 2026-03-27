@@ -191,7 +191,9 @@ class DriveTreeWindow : public Fl_Window {
 }  // namespace
 
 int main(int argc, char* argv[]) {
+#if defined(__linux__)
   Fl::scheme("gtk+");
+#endif
   DriveTreeWindow window;
   window.show(argc, argv);
   return Fl::run();

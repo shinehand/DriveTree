@@ -12,6 +12,8 @@
 namespace drivetree {
 namespace {
 
+constexpr const char* kUnits[] = {"B", "KB", "MB", "GB", "TB", "PB"};
+
 struct MutableNode {
   std::string name;
   NodeType type;
@@ -204,7 +206,7 @@ Node build_tree_from_entries(const std::vector<Entry>& entries, const std::strin
 
 Summary summarize_node(const Node& node) {
   if (node.type == NodeType::File) {
-    return Summary{node.size, 0, 1, &node};
+    return Summary{node.size, 0, 1, nullptr};
   }
 
   std::size_t folder_count = 0;
@@ -263,7 +265,6 @@ std::string format_bytes(std::uintmax_t size) {
     return "0 B";
   }
 
-  static const char* kUnits[] = {"B", "KB", "MB", "GB", "TB", "PB"};
   const double value = static_cast<double>(size);
   const auto exponent = static_cast<std::size_t>(
       std::min<double>(std::floor(std::log(value) / std::log(1024.0)), static_cast<double>(std::size(kUnits) - 1)));
