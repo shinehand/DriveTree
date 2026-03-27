@@ -42,6 +42,7 @@ struct RankedItem {
 Node build_tree_from_entries(const std::vector<Entry>& entries, const std::string& fallback_name);
 Summary summarize_node(const Node& node);
 std::vector<RankedItem> collect_largest_items(const Node& root, std::size_t limit);
+std::vector<std::string> format_tree_lines(const Node& root);
 std::string format_bytes(std::uintmax_t size);
 std::vector<Entry> scan_path(const std::filesystem::path& root_path);
 std::vector<Entry> sample_entries();

@@ -153,6 +153,21 @@ void collect_descendants(
   }
 }
 
+std::string node_type_label(const NodeType type) {
+  return type == NodeType::Folder ? "DIR " : "FILE";
+}
+
+void append_tree_lines(const Node& node, std::size_t depth, std::vector<std::string>& lines) {
+  std::ostringstream buffer;
+  buffer << std::string(depth * 2, ' ') << "- [" << node_type_label(node.type) << "] " << node.name << "  "
+         << format_bytes(node.size);
+  lines.push_back(buffer.str());
+
+  for (const auto& child : node.children) {
+    append_tree_lines(child, depth + 1, lines);
+  }
+}
+
 std::string path_name_or_fallback(const std::filesystem::path& path) {
   if (!path.filename().empty()) {
     return path.filename().string();
@@ -235,6 +250,12 @@ std::vector<RankedItem> collect_largest_items(const Node& root, std::size_t limi
   }
 
   return items;
+}
+
+std::vector<std::string> format_tree_lines(const Node& root) {
+  std::vector<std::string> lines;
+  append_tree_lines(root, 0, lines);
+  return lines;
 }
 
 std::string format_bytes(std::uintmax_t size) {

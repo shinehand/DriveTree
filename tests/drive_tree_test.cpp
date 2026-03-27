@@ -87,6 +87,22 @@ void scan_path_reads_real_files() {
   assert(!std::filesystem::exists(temp_root));
 }
 
+void format_tree_lines_includes_root_and_children() {
+  const auto tree = drivetree::build_tree_from_entries(
+      {
+          {"Drive/Users/me/video.mov", 300},
+          {"Drive/System/cache.bin", 200},
+      },
+      "Selected Folder");
+
+  const auto lines = drivetree::format_tree_lines(tree);
+
+  assert(lines.size() == 6);
+  assert(lines[0] == "- [DIR ] Drive  500 B");
+  assert(lines[1] == "  - [DIR ] Users  300 B");
+  assert(lines[5] == "    - [FILE] cache.bin  200 B");
+}
+
 }  // namespace
 
 int main() {
@@ -94,6 +110,7 @@ int main() {
   summarize_node_counts_descendants();
   collect_largest_items_sorts_descendants();
   scan_path_reads_real_files();
+  format_tree_lines_includes_root_and_children();
   std::cout << "All DriveTree tests passed.\n";
   return 0;
 }
