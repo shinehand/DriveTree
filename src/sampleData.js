@@ -1,0 +1,17 @@
+export const sampleEntries = [
+  { path: "Macintosh HD/Applications/Xcode.app", size: 14_200_000_000 },
+  { path: "Macintosh HD/Applications/Adobe Photoshop.app", size: 4_100_000_000 },
+  { path: "Macintosh HD/Applications/Visual Studio Code.app", size: 420_000_000 },
+  { path: "Macintosh HD/Users/shinehand/Videos/4k-edit.mp4", size: 8_600_000_000 },
+  { path: "Macintosh HD/Users/shinehand/Videos/interview.mov", size: 3_400_000_000 },
+  { path: "Macintosh HD/Users/shinehand/Downloads/dataset.zip", size: 6_900_000_000 },
+  { path: "Macintosh HD/Users/shinehand/Downloads/archive.tar", size: 2_900_000_000 },
+  { path: "Macintosh HD/Users/shinehand/Documents/design.psd", size: 1_200_000_000 },
+  { path: "Macintosh HD/Users/shinehand/Documents/DriveTree/mockups.fig", size: 860_000_000 },
+  { path: "Macintosh HD/Users/shinehand/Documents/DriveTree/export.mov", size: 4_800_000_000 },
+  { path: "Macintosh HD/Users/shinehand/Projects/DriveTree/node_modules.tar", size: 1_900_000_000 },
+  { path: "Macintosh HD/Users/shinehand/Projects/DriveTree/src/app.js", size: 240_000 },
+  { path: "Macintosh HD/System/Library/Caches/cache.data", size: 2_500_000_000 },
+  { path: "Macintosh HD/System/Library/Caches/index.db", size: 1_100_000_000 },
+  { path: "Macintosh HD/System/Library/Fonts/font-pack.pkg", size: 960_000_000 },
+];

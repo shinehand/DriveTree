@@ -1,0 +1,23 @@
+{
+  "name": "drivetree",
+  "version": "1.0.0",
+  "description": "Browser-based disk usage treemap inspired by WizTree",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test",
+    "lint": "node --check server.js && node --check src/app.js && node --check src/driveTree.js && node --check src/sampleData.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shinehand/DriveTree.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/shinehand/DriveTree/issues"
+  },
+  "homepage": "https://github.com/shinehand/DriveTree#readme"
+}
