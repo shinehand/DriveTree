@@ -84,6 +84,7 @@ void scan_path_reads_real_files() {
   assert(summary.total_size == 8);
 
   std::filesystem::remove_all(temp_root);
+  assert(!std::filesystem::exists(temp_root));
 }
 
 }  // namespace

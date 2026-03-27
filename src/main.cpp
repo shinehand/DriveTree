@@ -27,21 +27,21 @@ void print_usage() {
 Options parse_options(int argc, char* argv[]) {
   Options options;
 
-  for (int index = 1; index < argc; ++index) {
-    const std::string argument = argv[index];
+  for (int arg_index = 1; arg_index < argc; ++arg_index) {
+    const std::string argument = argv[arg_index];
 
     if (argument == "--sample") {
       options.sample = true;
       continue;
     }
 
-    if (argument == "--limit" && index + 1 < argc) {
-      options.limit = static_cast<std::size_t>(std::stoull(argv[++index]));
+    if (argument == "--limit" && arg_index + 1 < argc) {
+      options.limit = static_cast<std::size_t>(std::stoull(argv[++arg_index]));
       continue;
     }
 
-    if (argument == "--depth" && index + 1 < argc) {
-      options.depth = static_cast<std::size_t>(std::stoull(argv[++index]));
+    if (argument == "--depth" && arg_index + 1 < argc) {
+      options.depth = static_cast<std::size_t>(std::stoull(argv[++arg_index]));
       continue;
     }
 
